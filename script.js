@@ -49,50 +49,6 @@
     }
   };
 
-  /* cores das marcas: [fundo, letra] */
-  var BC = {
-    'Heineken':['#1b7a3e','#fff'],'Skol':['#FFC800','#c8102e'],'Brahma':['#E30613','#fff'],'Antarctica':['#0057A8','#fff'],
-    'Budweiser':['#C8102E','#fff'],'Stella Artois':['#1d1d1b','#d4af37'],'Itaipava':['#E2001A','#FFD200'],'Amstel':['#D01F2D','#fff'],
-    'Eisenbahn':['#1f3b2d','#e8c15a'],'Original':['#111','#e2b13c'],'Corona':['#F5C400','#1a3d7c'],'Bohemia':['#7a1f1f','#f2d27a'],
-    'Coca-Cola':['#E41E2B','#fff'],'Pepsi':['#0B3D91','#fff'],'Guaraná Antarctica':['#0a7a3d','#FFD200'],'Fanta':['#FF8200','#fff'],
-    'Sprite':['#00A94F','#fff'],'Tubaína':['#8B1E3F','#fff'],'Dolly':['#D6194A','#fff'],'Kuat':['#2E9B3C','#fff'],
-    'Schweppes':['#FFD400','#111'],'Sukita':['#FF7A00','#fff'],
-    'Crystal':['#00A3E0','#fff'],'Bonafont':['#1B75BC','#fff'],'Minalba':['#0070B8','#fff'],'Indaiá':['#00A0DF','#fff'],
-    'Prata':['#1E73BE','#fff'],'Lindoya':['#0A9AD6','#fff'],'São Lourenço':['#1B4F9C','#fff'],
-    'Del Valle':['#F37021','#fff'],'Maguary':['#E31E24','#fff'],'Ades':['#F7A600','#222'],'Do Bem':['#2BB673','#fff'],
-    'Fuze Tea':['#E2231A','#fff'],'Matte Leão':['#0d6b3a','#fff'],'Natural One':['#7ab800','#fff'],'Tial':['#E85D04','#fff'],
-    'Red Bull':['#1E2A5E','#FFC72C'],'Monster':['#111','#7ED321'],'Fusion':['#E30613','#fff'],'TNT Energy':['#FFD500','#111'],
-    'Baly':['#E4002B','#fff'],'Burn':['#c8102e','#fff'],'Flash Power':['#00A0E3','#fff'],'Nos':['#0033A0','#FFD100'],
-    'Smirnoff':['#C8102E','#fff'],'Absolut':['#1B3A8C','#fff'],'Johnnie Walker':['#1a1a1a','#d4a437'],"Jack Daniel's":['#111','#fff'],
-    'Jim Beam':['#111','#C8A25D'],'Ypióca':['#1d1d1b','#f5b800'],'51':['#FFD100','#0a8a3a'],'Velho Barreiro':['#7a1d1d','#f5d27a'],
-    'Tanqueray':['#0b6b3a','#fff'],"Gordon's":['#006A4E','#fff'],'Campari':['#D6001C','#fff'],'Jägermeister':['#2c5f2d','#f5a623']
-  };
-  /* slugs do Simple Icons (cdn.jsdelivr.net/npm/simple-icons) */
-  var SI = { 'Coca-Cola':'cocacola' };
-  /* site oficial de cada marca (usado para buscar o ícone) */
-  var DOM = {
-    'Heineken':'heineken.com','Skol':'skol.com.br','Brahma':'brahma.com.br','Antarctica':'antarctica.com.br','Budweiser':'budweiser.com',
-    'Stella Artois':'stellaartois.com','Itaipava':'itaipava.com.br','Amstel':'amstel.com','Eisenbahn':'eisenbahn.com.br','Corona':'corona.com',
-    'Bohemia':'bohemia.com.br','Original':'cervejaoriginal.com.br','Pepsi':'pepsi.com','Fanta':'fanta.com','Sprite':'sprite.com',
-    'Schweppes':'schweppes.com','Dolly':'dolly.com.br','Guaraná Antarctica':'guaranaantarctica.com.br','Tubaína':'tubaina.com.br',
-    'Kuat':'kuat.com.br','Sukita':'sukita.com.br','Crystal':'crystal.com.br','Bonafont':'bonafont.com.br','Minalba':'minalba.com.br',
-    'Indaiá':'indaia.com.br','Prata':'aguaprata.com.br','Lindoya':'lindoya.com.br','São Lourenço':'saolourenco.com.br',
-    'Del Valle':'delvalle.com.br','Maguary':'maguary.com.br','Ades':'ades.com.br','Do Bem':'dobem.com','Fuze Tea':'fuzetea.com.br',
-    'Matte Leão':'matteleao.com.br','Natural One':'naturalone.com.br','Tial':'tial.com.br','Red Bull':'redbull.com','Monster':'monsterenergy.com',
-    'Fusion':'fusionenergy.com.br','TNT Energy':'tntenergy.com.br','Baly':'baly.com.br','Burn':'burn.com','Flash Power':'flashpower.com.br',
-    'Nos':'nosenergy.com','Smirnoff':'smirnoff.com','Absolut':'absolut.com','Johnnie Walker':'johnniewalker.com',"Jack Daniel's":'jackdaniels.com',
-    'Jim Beam':'jimbeam.com','Ypióca':'ypioca.com.br','51':'cachaca51.com.br','Velho Barreiro':'velhobarreiro.com.br','Tanqueray':'tanqueray.com',
-    "Gordon's":'gordons.com','Campari':'campari.com','Jägermeister':'jagermeister.com'
-  };
-
-
-  function slug(n) { return n.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
-  function abbr(n) {
-    var w = n.replace(/'s$/, '').split(/[\s-]+/);
-    if (w.length > 1) return (w[0].charAt(0) + w[1].charAt(0)).toUpperCase();
-    return n.length > 2 && isNaN(n) ? n.charAt(0).toUpperCase() + n.charAt(1).toLowerCase() : n;
-  }
-
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- Header / progresso / menu ---------- */
@@ -189,49 +145,8 @@
     panelNote.style.display = c.adult ? 'block' : 'none';
 
     grid.innerHTML = c.brands.map(function (name, idx) {
-      return '<div class="brand-item" style="--i:' + idx + '">' +
-        '<span class="brand-item__dot" style="--bg:' + (BC[name] || ['#16a34a','#fff'])[0] + ';--fg:' + (BC[name] || ['#16a34a','#fff'])[1] + '">' + esc(abbr(name)) +
-        '<img src="img/marcas/' + slug(name) + '.svg" alt="" loading="lazy" data-s="' + slug(name) + '" onload="this.parentNode.classList.add(\'has-logo\')" onerror="var e=+(this.dataset.e||0),x=[\'png\',\'webp\',\'jpg\'];if(e<3){this.dataset.e=e+1;this.src=\'img/marcas/\'+this.dataset.s+\'.\'+x[e]}else{this.remove()}">' + '</span>' +
-        '<span class="brand-item__name">' + esc(name) + '</span></div>';
+      return '<li class="brand-item" style="--i:' + idx + '"><span class="brand-item__name">' + esc(name) + '</span></li>';
     }).join('');
-
-    // logos: 1) Simple Icons  2) ícone do site oficial  3) sigla colorida
-    grid.querySelectorAll('.brand-item__dot').forEach(function (dot, i) {
-      var name = c.brands[i];
-      function favicon() {
-        var d = DOM[name];
-        if (!d) return;
-        // tenta o Google (precisa ser >= 32px) e depois o DuckDuckGo
-        var fontes = [
-          ['https://www.google.com/s2/favicons?sz=128&domain=' + d, 32],
-          ['https://icons.duckduckgo.com/ip3/' + d + '.ico', 16]
-        ];
-        (function tenta(k) {
-          if (k >= fontes.length || dot.classList.contains('has-logo')) return;
-          var im = new Image();
-          im.onload = function () {
-            if (im.naturalWidth < fontes[k][1] || dot.classList.contains('has-logo')) { tenta(k + 1); return; }
-            im.alt = '';
-            dot.classList.add('has-logo');
-            dot.appendChild(im);
-          };
-          im.onerror = function () { tenta(k + 1); };
-          im.src = fontes[k][0];
-        })(0);
-      }
-      if (!SI[name]) { favicon(); return; }
-      var url = 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/' + SI[name] + '.svg';
-      var si = new Image();
-      si.onload = function () {
-        var ic = document.createElement('i');
-        ic.style.setProperty('--u', 'url("' + url + '")');
-        if (dot.firstChild && dot.firstChild.nodeType === 3) dot.removeChild(dot.firstChild);
-        dot.classList.add('has-si');
-        dot.appendChild(ic);
-      };
-      si.onerror = favicon;
-      si.src = url;
-    });
 
     // reinicia a animação do painel
     panel.classList.remove('swap');
