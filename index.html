@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Albimar | Distribuidora de Bebidas</title>
+  <meta name="description" content="Albimar Distribuidora de Bebidas: cervejas, refrigerantes, águas, sucos e muito mais com entrega rápida em São Paulo.">
+  <meta name="theme-color" content="#065f2c">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#inicio" class="brand" aria-label="Albimar - início">
+        <svg class="brand__icon" viewBox="0 0 64 64" aria-hidden="true">
+          <defs>
+            <linearGradient id="gh" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#16a34a"/><stop offset="1" stop-color="#065f2c"/>
+            </linearGradient>
+          </defs>
+          <circle cx="32" cy="32" r="30" fill="url(#gh)" stroke="#FFC929" stroke-width="3"/>
+          <rect x="28" y="8" width="8" height="4" rx="1.5" fill="#fff"/>
+          <path d="M28.5 12h7v9c3.5 2.5 5.5 5 5.5 9v16c0 2.2-1.8 4-4 4H27c-2.2 0-4-1.8-4-4V30c0-4 2-6.5 5.5-9z" fill="#FFC929"/>
+          <path d="M23 36q4.5-4 9 0t9 0" fill="none" stroke="#065f2c" stroke-width="2.6" stroke-linecap="round"/>
+          <path d="M23 42q4.5-4 9 0t9 0" fill="none" stroke="#065f2c" stroke-width="2.6" stroke-linecap="round"/>
+        </svg>
+        <span class="brand__text">Albi<span>mar</span></span>
+      </a>
+
+      <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="menu" id="menu">
+        <a href="#produtos">Produtos</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#localizacao">Localização</a>
+        <a href="#contato" class="btn btn--small">Fale conosco</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <div class="bubbles" id="bubbles" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <span class="chip reveal">🚚 Entrega rápida na sua região</span>
+          <h1 class="reveal" style="--d:.1s">Bebida gelada<br>na hora <em>certa</em>.</h1>
+          <p class="reveal" style="--d:.2s">
+            A <strong>Albimar</strong> abastece seu bar, restaurante, mercado ou festa com as melhores marcas, preço justo e entrega sem enrolação.
+          </p>
+          <div class="hero__cta reveal" style="--d:.3s">
+            <a href="#contato" class="btn">Fazer pedido</a>
+            <a href="#produtos" class="btn btn--ghost">Ver produtos</a>
+          </div>
+        </div>
+
+        <div class="hero__art reveal" style="--d:.2s" aria-hidden="true">
+          <div class="hero__circle"></div>
+          <svg class="hero__bottle hero__bottle--main" viewBox="0 0 64 64">
+            <rect x="28" y="8" width="8" height="4" rx="1.5" fill="#fff"/>
+            <path d="M28.5 12h7v9c3.5 2.5 5.5 5 5.5 9v16c0 2.2-1.8 4-4 4H27c-2.2 0-4-1.8-4-4V30c0-4 2-6.5 5.5-9z" fill="#FFC929"/>
+            <path d="M23 36q4.5-4 9 0t9 0" fill="none" stroke="#065f2c" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M23 42q4.5-4 9 0t9 0" fill="none" stroke="#065f2c" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+          <span class="float float--1">🍺</span>
+          <span class="float float--2">🥤</span>
+          <span class="float float--3">💧</span>
+          <span class="float float--4">🍊</span>
+        </div>
+      </div>
+
+      <svg class="hero__wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+        <path class="wave wave--back" d="M0 60c120 40 240 40 360 10s240-40 360-10 240 50 360 30 240-40 360-10v40H0z"/>
+        <path class="wave wave--front" d="M0 80c120-30 240-30 360 0s240 30 360 0 240-30 360 0 240 30 360 0v40H0z"/>
+      </svg>
+    </section>
+
+    <!-- NÚMEROS -->
+    <section class="stats">
+      <div class="container stats__grid">
+        <div class="stat reveal">
+          <strong data-count="500" data-suffix="+">0</strong>
+          <span>produtos no catálogo</span>
+        </div>
+        <div class="stat reveal" style="--d:.1s">
+          <strong data-count="1200" data-suffix="+">0</strong>
+          <span>clientes atendidos</span>
+        </div>
+        <div class="stat reveal" style="--d:.2s">
+          <strong data-count="24" data-suffix="h">0</strong>
+          <span>entrega em até</span>
+        </div>
+        <div class="stat reveal" style="--d:.3s">
+          <strong data-count="100" data-suffix="%">0</strong>
+          <span>compromisso com você</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUTOS -->
+    <section class="section" id="produtos">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="tag">Nosso catálogo</span>
+          <h2>Tudo que você precisa, <em>num só lugar</em></h2>
+          <p>Das marcas mais pedidas às novidades do mercado.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card__icon">🍺</div>
+            <h3>Cervejas</h3>
+            <p>Lata, long neck e barril das marcas que o público pede.</p>
+          </article>
+          <article class="card reveal" style="--d:.08s">
+            <div class="card__icon">🥤</div>
+            <h3>Refrigerantes</h3>
+            <p>Versões tradicionais, zero e linha retornável.</p>
+          </article>
+          <article class="card reveal" style="--d:.16s">
+            <div class="card__icon">💧</div>
+            <h3>Águas</h3>
+            <p>Com e sem gás, em garrafas e galões.</p>
+          </article>
+          <article class="card reveal" style="--d:.24s">
+            <div class="card__icon">🍊</div>
+            <h3>Sucos e Chás</h3>
+            <p>Naturais, néctares e chás gelados para todos os gostos.</p>
+          </article>
+          <article class="card reveal" style="--d:.32s">
+            <div class="card__icon">⚡</div>
+            <h3>Energéticos</h3>
+            <p>Energia na medida para o seu balcão.</p>
+          </article>
+          <article class="card reveal" style="--d:.4s">
+            <div class="card__icon">🥃</div>
+            <h3>Destilados</h3>
+            <p>Vodkas, whiskies, cachaças e muito mais.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="section section--alt" id="sobre">
+      <div class="container about">
+        <div class="about__visual reveal" aria-hidden="true">
+          <div class="about__badge">
+            <svg viewBox="0 0 64 64">
+              <circle cx="32" cy="32" r="30" fill="#065f2c" stroke="#FFC929" stroke-width="3"/>
+              <rect x="28" y="8" width="8" height="4" rx="1.5" fill="#fff"/>
+              <path d="M28.5 12h7v9c3.5 2.5 5.5 5 5.5 9v16c0 2.2-1.8 4-4 4H27c-2.2 0-4-1.8-4-4V30c0-4 2-6.5 5.5-9z" fill="#FFC929"/>
+              <path d="M23 36q4.5-4 9 0t9 0" fill="none" stroke="#065f2c" stroke-width="2.6" stroke-linecap="round"/>
+              <path d="M23 42q4.5-4 9 0t9 0" fill="none" stroke="#065f2c" stroke-width="2.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="about__ring about__ring--1"></div>
+          <div class="about__ring about__ring--2"></div>
+        </div>
+
+        <div class="about__text reveal" style="--d:.15s">
+          <span class="tag">Sobre a Albimar</span>
+          <h2>Mais que distribuir, <em>a gente cuida</em> do seu negócio</h2>
+          <p>
+            Somos uma distribuidora de bebidas com foco em atendimento próximo, pontualidade e variedade.
+            Trabalhamos para que nunca falte produto na sua prateleira, no seu bar ou na sua festa.
+          </p>
+          <ul class="checks">
+            <li>Preços competitivos para atacado e varejo</li>
+            <li>Entrega no prazo, com equipe treinada</li>
+            <li>Atendimento direto pelo WhatsApp</li>
+            <li>Produtos sempre dentro da validade e bem armazenados</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="section" id="como-funciona">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="tag">Como funciona</span>
+          <h2>Pedir é <em>simples</em></h2>
+        </div>
+        <div class="steps">
+          <div class="step reveal">
+            <span class="step__num">1</span>
+            <h3>Fale com a gente</h3>
+            <p>Chame no WhatsApp e conte o que você precisa.</p>
+          </div>
+          <div class="step reveal" style="--d:.12s">
+            <span class="step__num">2</span>
+            <h3>Receba o orçamento</h3>
+            <p>Enviamos os valores e prazos rapidinho.</p>
+          </div>
+          <div class="step reveal" style="--d:.24s">
+            <span class="step__num">3</span>
+            <h3>Entrega na porta</h3>
+            <p>Seu pedido chega no endereço combinado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCALIZAÇÃO -->
+    <section class="section section--alt" id="localizacao">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="tag">Onde estamos</span>
+          <h2>Venha nos <em>visitar</em></h2>
+          <p>📍 Rua Ana do Sacramento Andrade, 315 – Furnas, São Paulo</p>
+        </div>
+
+        <div class="map reveal">
+          <iframe
+            title="Mapa da Albimar Distribuidora de Bebidas"
+            src="https://www.google.com/maps?q=Rua+Ana+do+Sacramento+Andrade,+315,+Furnas,+S%C3%A3o+Paulo&output=embed"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="map__cta reveal">
+          <a class="btn" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/search/?api=1&query=Rua+Ana+do+Sacramento+Andrade,+315,+Furnas,+S%C3%A3o+Paulo">
+            Abrir no Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="section contact" id="contato">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="tag">Contato</span>
+          <h2>Bora <em>conversar?</em></h2>
+          <p>Escolha o canal que for melhor pra você.</p>
+        </div>
+
+        <div class="contact__grid">
+          <!-- Troque os links abaixo pelos reais quando quiser -->
+          <a class="contact__card contact__card--whats reveal"
+             href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20pedido%20na%20Albimar."
+             target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.52 3.48A11.86 11.86 0 0 0 12.05 0C5.5 0 .17 5.33.17 11.88c0 2.09.55 4.13 1.59 5.93L0 24l6.35-1.66a11.87 11.87 0 0 0 5.7 1.45h.01c6.55 0 11.88-5.33 11.88-11.88 0-3.17-1.23-6.15-3.42-8.43zM12.06 21.8h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.77.99 1-3.67-.24-.38a9.88 9.88 0 0 1-1.52-5.27c0-5.46 4.45-9.9 9.92-9.9 2.65 0 5.13 1.03 7 2.9a9.84 9.84 0 0 1 2.9 7c0 5.46-4.45 9.92-9.88 9.92zm5.43-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/></svg>
+            <div>
+              <h3>WhatsApp</h3>
+              <p>(11) 99999-9999</p>
+            </div>
+          </a>
+
+          <a class="contact__card contact__card--insta reveal" style="--d:.12s"
+             href="https://instagram.com/albimar.bebidas" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+            <div>
+              <h3>Instagram</h3>
+              <p>@albimar.bebidas</p>
+            </div>
+          </a>
+
+          <div class="contact__card contact__card--info reveal" style="--d:.24s">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+            <div>
+              <h3>Endereço</h3>
+              <p>Rua Ana do Sacramento Andrade, 315<br>Furnas – São Paulo</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="brand__text">Albi<span>mar</span></span>
+        <small>Distribuidora de Bebidas</small>
+      </div>
+      <p class="footer__warn">🔞 Venda proibida para menores de 18 anos. Beba com moderação.</p>
+      <p class="footer__copy">© <span id="year"></span> Albimar. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Botão flutuante WhatsApp -->
+  <a class="fab" href="https://wa.me/5511999999999" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.52 3.48A11.86 11.86 0 0 0 12.05 0C5.5 0 .17 5.33.17 11.88c0 2.09.55 4.13 1.59 5.93L0 24l6.35-1.66a11.87 11.87 0 0 0 5.7 1.45h.01c6.55 0 11.88-5.33 11.88-11.88 0-3.17-1.23-6.15-3.42-8.43zM12.06 21.8h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.77.99 1-3.67-.24-.38a9.88 9.88 0 0 1-1.52-5.27c0-5.46 4.45-9.9 9.92-9.9 2.65 0 5.13 1.03 7 2.9a9.84 9.84 0 0 1 2.9 7c0 5.46-4.45 9.92-9.88 9.92zm5.43-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/></svg>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
