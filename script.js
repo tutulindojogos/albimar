@@ -68,12 +68,18 @@
     'Tanqueray':['#0b6b3a','#fff'],"Gordon's":['#006A4E','#fff'],'Campari':['#D6001C','#fff'],'Jägermeister':['#2c5f2d','#f5a623']
   };
   /* slugs do Simple Icons (cdn.jsdelivr.net/npm/simple-icons) */
-  var SI = {
-    'Heineken':'heineken','Budweiser':'budweiser','Stella Artois':'stellaartois','Corona':'corona','Coca-Cola':'cocacola',
-    'Pepsi':'pepsi','Fanta':'fanta','Sprite':'sprite','Schweppes':'schweppes','Red Bull':'redbull','Monster':'monsterenergy',
-    "Jack Daniel's":'jackdaniels','Johnnie Walker':'johnniewalker','Absolut':'absolutvodka','Smirnoff':'smirnoff',
-    'Campari':'campari','Jägermeister':'jagermeister','Tanqueray':'tanqueray','Fuze Tea':'fuzetea','Del Valle':'delvalle'
+  var SI = { 'Coca-Cola':'cocacola', 'Red Bull':'redbull' };
+  /* site oficial de cada marca (usado para buscar o ícone) */
+  var DOM = {
+    'Heineken':'heineken.com','Skol':'skol.com.br','Brahma':'brahma.com.br','Antarctica':'antarctica.com.br','Budweiser':'budweiser.com',
+    'Stella Artois':'stellaartois.com','Itaipava':'itaipava.com.br','Amstel':'amstel.com','Eisenbahn':'eisenbahn.com.br','Corona':'corona.com',
+    'Bohemia':'bohemia.com.br','Pepsi':'pepsi.com','Fanta':'fanta.com','Sprite':'sprite.com','Schweppes':'schweppes.com','Dolly':'dolly.com.br',
+    'Guaraná Antarctica':'guaranaantarctica.com.br','Bonafont':'bonafont.com.br','Minalba':'minalba.com.br','Del Valle':'delvalle.com.br',
+    'Maguary':'maguary.com.br','Matte Leão':'matteleao.com.br','Do Bem':'dobem.com','Monster':'monsterenergy.com','Smirnoff':'smirnoff.com',
+    'Absolut':'absolut.com','Johnnie Walker':'johnniewalker.com',"Jack Daniel's":'jackdaniels.com','Jim Beam':'jimbeam.com','Ypióca':'ypioca.com.br',
+    'Velho Barreiro':'velhobarreiro.com.br','Tanqueray':'tanqueray.com',"Gordon's":'gordons.com','Campari':'campari.com','Jägermeister':'jagermeister.com'
   };
+
   function slug(n) { return n.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
   function abbr(n) {
     var w = n.replace(/'s$/, '').split(/[\s-]+/);
@@ -183,25 +189,32 @@
         '<span class="brand-item__name">' + esc(name) + '</span></div>';
     }).join('');
 
-    // logos reais via Simple Icons (se existir; senão fica o ícone colorido)
+    // logos: 1) Simple Icons  2) ícone do site oficial  3) sigla colorida
     grid.querySelectorAll('.brand-item__dot').forEach(function (dot, i) {
-      var id = SI[c.brands[i]];
-      if (!id) return;
-      var bases = ['simple-icons@v13', 'simple-icons@latest', 'simple-icons@v11'];
-      (function tryNext(k) {
-        if (k >= bases.length) return;
-        var url = 'https://cdn.jsdelivr.net/npm/' + bases[k] + '/icons/' + id + '.svg';
+      var name = c.brands[i];
+      function favicon() {
+        if (!DOM[name]) return;
         var im = new Image();
         im.onload = function () {
-          var ic = document.createElement('i');
-          ic.style.setProperty('--u', 'url("' + url + '")');
-          dot.textContent = '';
-          dot.classList.add('has-si');
-          dot.appendChild(ic);
+          if (im.naturalWidth < 32 || dot.querySelector('img')) return;
+          im.alt = '';
+          dot.classList.add('has-logo');
+          dot.appendChild(im);
         };
-        im.onerror = function () { tryNext(k + 1); };
-        im.src = url;
-      })(0);
+        im.src = 'https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://' + DOM[name];
+      }
+      if (!SI[name]) { favicon(); return; }
+      var url = 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/' + SI[name] + '.svg';
+      var si = new Image();
+      si.onload = function () {
+        var ic = document.createElement('i');
+        ic.style.setProperty('--u', 'url("' + url + '")');
+        dot.textContent = '';
+        dot.classList.add('has-si');
+        dot.appendChild(ic);
+      };
+      si.onerror = favicon;
+      si.src = url;
     });
 
     // reinicia a animação do painel
