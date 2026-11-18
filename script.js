@@ -67,6 +67,13 @@
     'Jim Beam':['#111','#C8A25D'],'Ypióca':['#1d1d1b','#f5b800'],'51':['#FFD100','#0a8a3a'],'Velho Barreiro':['#7a1d1d','#f5d27a'],
     'Tanqueray':['#0b6b3a','#fff'],"Gordon's":['#006A4E','#fff'],'Campari':['#D6001C','#fff'],'Jägermeister':['#2c5f2d','#f5a623']
   };
+  /* slugs do Simple Icons (cdn.jsdelivr.net/npm/simple-icons) */
+  var SI = {
+    'Heineken':'heineken','Budweiser':'budweiser','Stella Artois':'stellaartois','Corona':'corona','Coca-Cola':'cocacola',
+    'Pepsi':'pepsi','Fanta':'fanta','Sprite':'sprite','Schweppes':'schweppes','Red Bull':'redbull','Monster':'monsterenergy',
+    "Jack Daniel's":'jackdaniels','Johnnie Walker':'johnniewalker','Absolut':'absolutvodka','Smirnoff':'smirnoff',
+    'Campari':'campari','Jägermeister':'jagermeister','Tanqueray':'tanqueray','Fuze Tea':'fuzetea','Del Valle':'delvalle'
+  };
   function slug(n) { return n.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
   function abbr(n) {
     var w = n.replace(/'s$/, '').split(/[\s-]+/);
@@ -175,6 +182,22 @@
         '<img src="img/marcas/' + slug(name) + '.svg" alt="" loading="lazy" onload="this.parentNode.classList.add(\'has-logo\')" onerror="this.remove()"></span>' +
         '<span class="brand-item__name">' + esc(name) + '</span></div>';
     }).join('');
+
+    // logos reais via Simple Icons (se existir; senão fica o ícone colorido)
+    grid.querySelectorAll('.brand-item__dot').forEach(function (dot, i) {
+      var id = SI[c.brands[i]];
+      if (!id) return;
+      var url = 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/' + id + '.svg';
+      var im = new Image();
+      im.onload = function () {
+        var ic = document.createElement('i');
+        ic.style.setProperty('--u', 'url(' + url + ')');
+        dot.textContent = '';
+        dot.classList.add('has-si');
+        dot.appendChild(ic);
+      };
+      im.src = url;
+    });
 
     // reinicia a animação do painel
     panel.classList.remove('swap');
