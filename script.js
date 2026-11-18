@@ -68,17 +68,23 @@
     'Tanqueray':['#0b6b3a','#fff'],"Gordon's":['#006A4E','#fff'],'Campari':['#D6001C','#fff'],'Jägermeister':['#2c5f2d','#f5a623']
   };
   /* slugs do Simple Icons (cdn.jsdelivr.net/npm/simple-icons) */
-  var SI = { 'Coca-Cola':'cocacola', 'Red Bull':'redbull' };
+  var SI = { 'Coca-Cola':'cocacola' };
   /* site oficial de cada marca (usado para buscar o ícone) */
   var DOM = {
     'Heineken':'heineken.com','Skol':'skol.com.br','Brahma':'brahma.com.br','Antarctica':'antarctica.com.br','Budweiser':'budweiser.com',
     'Stella Artois':'stellaartois.com','Itaipava':'itaipava.com.br','Amstel':'amstel.com','Eisenbahn':'eisenbahn.com.br','Corona':'corona.com',
-    'Bohemia':'bohemia.com.br','Pepsi':'pepsi.com','Fanta':'fanta.com','Sprite':'sprite.com','Schweppes':'schweppes.com','Dolly':'dolly.com.br',
-    'Guaraná Antarctica':'guaranaantarctica.com.br','Bonafont':'bonafont.com.br','Minalba':'minalba.com.br','Del Valle':'delvalle.com.br',
-    'Maguary':'maguary.com.br','Matte Leão':'matteleao.com.br','Do Bem':'dobem.com','Monster':'monsterenergy.com','Smirnoff':'smirnoff.com',
-    'Absolut':'absolut.com','Johnnie Walker':'johnniewalker.com',"Jack Daniel's":'jackdaniels.com','Jim Beam':'jimbeam.com','Ypióca':'ypioca.com.br',
-    'Velho Barreiro':'velhobarreiro.com.br','Tanqueray':'tanqueray.com',"Gordon's":'gordons.com','Campari':'campari.com','Jägermeister':'jagermeister.com'
+    'Bohemia':'bohemia.com.br','Original':'cervejaoriginal.com.br','Pepsi':'pepsi.com','Fanta':'fanta.com','Sprite':'sprite.com',
+    'Schweppes':'schweppes.com','Dolly':'dolly.com.br','Guaraná Antarctica':'guaranaantarctica.com.br','Tubaína':'tubaina.com.br',
+    'Kuat':'kuat.com.br','Sukita':'sukita.com.br','Crystal':'crystal.com.br','Bonafont':'bonafont.com.br','Minalba':'minalba.com.br',
+    'Indaiá':'indaia.com.br','Prata':'aguaprata.com.br','Lindoya':'lindoya.com.br','São Lourenço':'saolourenco.com.br',
+    'Del Valle':'delvalle.com.br','Maguary':'maguary.com.br','Ades':'ades.com.br','Do Bem':'dobem.com','Fuze Tea':'fuzetea.com.br',
+    'Matte Leão':'matteleao.com.br','Natural One':'naturalone.com.br','Tial':'tial.com.br','Red Bull':'redbull.com','Monster':'monsterenergy.com',
+    'Fusion':'fusionenergy.com.br','TNT Energy':'tntenergy.com.br','Baly':'baly.com.br','Burn':'burn.com','Flash Power':'flashpower.com.br',
+    'Nos':'nosenergy.com','Smirnoff':'smirnoff.com','Absolut':'absolut.com','Johnnie Walker':'johnniewalker.com',"Jack Daniel's":'jackdaniels.com',
+    'Jim Beam':'jimbeam.com','Ypióca':'ypioca.com.br','51':'cachaca51.com.br','Velho Barreiro':'velhobarreiro.com.br','Tanqueray':'tanqueray.com',
+    "Gordon's":'gordons.com','Campari':'campari.com','Jägermeister':'jagermeister.com'
   };
+
 
   function slug(n) { return n.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
   function abbr(n) {
@@ -185,7 +191,7 @@
     grid.innerHTML = c.brands.map(function (name, idx) {
       return '<div class="brand-item" style="--i:' + idx + '">' +
         '<span class="brand-item__dot" style="--bg:' + (BC[name] || ['#16a34a','#fff'])[0] + ';--fg:' + (BC[name] || ['#16a34a','#fff'])[1] + '">' + esc(abbr(name)) +
-        '<img src="img/marcas/' + slug(name) + '.svg" alt="" loading="lazy" onload="this.parentNode.classList.add(\'has-logo\')" onerror="this.remove()"></span>' +
+        '<img src="img/marcas/' + slug(name) + '.svg" alt="" loading="lazy" data-s="' + slug(name) + '" onload="this.parentNode.classList.add(\'has-logo\')" onerror="var e=+(this.dataset.e||0),x=[\'png\',\'webp\',\'jpg\'];if(e<3){this.dataset.e=e+1;this.src=\'img/marcas/\'+this.dataset.s+\'.\'+x[e]}else{this.remove()}">' + '</span>' +
         '<span class="brand-item__name">' + esc(name) + '</span></div>';
     }).join('');
 
@@ -193,15 +199,25 @@
     grid.querySelectorAll('.brand-item__dot').forEach(function (dot, i) {
       var name = c.brands[i];
       function favicon() {
-        if (!DOM[name]) return;
-        var im = new Image();
-        im.onload = function () {
-          if (im.naturalWidth < 16 || dot.querySelector('img')) return;
-          im.alt = '';
-          dot.classList.add('has-logo');
-          dot.appendChild(im);
-        };
-        im.src = 'https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://' + DOM[name];
+        var d = DOM[name];
+        if (!d) return;
+        // tenta o Google (precisa ser >= 32px) e depois o DuckDuckGo
+        var fontes = [
+          ['https://www.google.com/s2/favicons?sz=128&domain=' + d, 32],
+          ['https://icons.duckduckgo.com/ip3/' + d + '.ico', 16]
+        ];
+        (function tenta(k) {
+          if (k >= fontes.length || dot.classList.contains('has-logo')) return;
+          var im = new Image();
+          im.onload = function () {
+            if (im.naturalWidth < fontes[k][1] || dot.classList.contains('has-logo')) { tenta(k + 1); return; }
+            im.alt = '';
+            dot.classList.add('has-logo');
+            dot.appendChild(im);
+          };
+          im.onerror = function () { tenta(k + 1); };
+          im.src = fontes[k][0];
+        })(0);
       }
       if (!SI[name]) { favicon(); return; }
       var url = 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/' + SI[name] + '.svg';
@@ -209,7 +225,7 @@
       si.onload = function () {
         var ic = document.createElement('i');
         ic.style.setProperty('--u', 'url("' + url + '")');
-        dot.textContent = '';
+        if (dot.firstChild && dot.firstChild.nodeType === 3) dot.removeChild(dot.firstChild);
         dot.classList.add('has-si');
         dot.appendChild(ic);
       };
