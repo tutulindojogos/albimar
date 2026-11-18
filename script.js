@@ -187,16 +187,21 @@
     grid.querySelectorAll('.brand-item__dot').forEach(function (dot, i) {
       var id = SI[c.brands[i]];
       if (!id) return;
-      var url = 'https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/' + id + '.svg';
-      var im = new Image();
-      im.onload = function () {
-        var ic = document.createElement('i');
-        ic.style.setProperty('--u', 'url(' + url + ')');
-        dot.textContent = '';
-        dot.classList.add('has-si');
-        dot.appendChild(ic);
-      };
-      im.src = url;
+      var bases = ['simple-icons@v13', 'simple-icons@latest', 'simple-icons@v11'];
+      (function tryNext(k) {
+        if (k >= bases.length) return;
+        var url = 'https://cdn.jsdelivr.net/npm/' + bases[k] + '/icons/' + id + '.svg';
+        var im = new Image();
+        im.onload = function () {
+          var ic = document.createElement('i');
+          ic.style.setProperty('--u', 'url("' + url + '")');
+          dot.textContent = '';
+          dot.classList.add('has-si');
+          dot.appendChild(ic);
+        };
+        im.onerror = function () { tryNext(k + 1); };
+        im.src = url;
+      })(0);
     });
 
     // reinicia a animação do painel
