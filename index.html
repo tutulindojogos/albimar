@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Albimar | Distribuidora de Bebidas</title>
-  <meta name="description" content="Albimar Distribuidora de Bebidas: cervejas, refrigerantes, águas, sucos e muito mais com entrega rápida em São Paulo.">
+  <meta name="description" content="Albimar Distribuidora de Bebidas: cervejas, refrigerantes, águas, sucos, energéticos e destilados com entrega rápida em São Paulo.">
   <meta name="theme-color" content="#065f2c">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,22 +14,49 @@
 </head>
 <body>
 
+  <!-- Ícone da marca (definido uma vez e reaproveitado) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <radialGradient id="amGreen" cx=".3" cy=".25" r="1">
+        <stop offset="0" stop-color="#2bc45f"/>
+        <stop offset=".55" stop-color="#0f8a3f"/>
+        <stop offset="1" stop-color="#054a22"/>
+      </radialGradient>
+      <linearGradient id="amGold" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#FFE88A"/>
+        <stop offset=".5" stop-color="#FFC929"/>
+        <stop offset="1" stop-color="#E5A800"/>
+      </linearGradient>
+      <clipPath id="amClip"><circle cx="50" cy="50" r="43"/></clipPath>
+      <symbol id="albimar-icon" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="48" fill="url(#amGold)"/>
+        <circle cx="50" cy="50" r="44.5" fill="#043d1c"/>
+        <circle cx="50" cy="50" r="43" fill="url(#amGreen)"/>
+        <g clip-path="url(#amClip)">
+          <path d="M0 77q12.5-7 25 0t25 0t25 0t25 0V100H0z" fill="#12a24d" opacity=".85"/>
+          <path d="M0 83q12.5-6 25 0t25 0t25 0t25 0V100H0z" fill="#FFC929"/>
+          <path d="M0 90q12.5-5 25 0t25 0t25 0t25 0V100H0z" fill="#E5A800"/>
+          <ellipse cx="34" cy="21" rx="23" ry="11" fill="#fff" opacity=".12" transform="rotate(-25 34 21)"/>
+        </g>
+        <circle cx="22" cy="44" r="2" fill="#fff" opacity=".55"/>
+        <circle cx="78" cy="40" r="2.6" fill="#fff" opacity=".55"/>
+        <circle cx="74" cy="25" r="1.4" fill="#fff" opacity=".7"/>
+        <circle cx="26" cy="60" r="1.4" fill="#fff" opacity=".6"/>
+        <path d="M50 12c3.3 5 5.3 8 5.3 10.8a5.3 5.3 0 0 1-10.6 0C44.7 20 46.7 17 50 12z" fill="#fff"/>
+        <path d="M32 74L50 38L68 74" fill="none" stroke="#032a14" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round" opacity=".35"/>
+        <path d="M32 72L50 36L68 72" fill="none" stroke="url(#amGold)" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M39 58q5.5-5 11 0t11 0" fill="none" stroke="#fff" stroke-width="4.2" stroke-linecap="round"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
   <!-- CABEÇALHO -->
   <header class="header" id="header">
     <div class="container header__inner">
       <a href="#inicio" class="brand" aria-label="Albimar - início">
-        <svg class="brand__icon" viewBox="0 0 64 64" aria-hidden="true">
-          <defs>
-            <linearGradient id="gh" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#16a34a"/><stop offset="1" stop-color="#065f2c"/>
-            </linearGradient>
-          </defs>
-          <circle cx="32" cy="32" r="30" fill="url(#gh)" stroke="#FFC929" stroke-width="3"/>
-          <rect x="28" y="8" width="8" height="4" rx="1.5" fill="#fff"/>
-          <path d="M28.5 12h7v9c3.5 2.5 5.5 5 5.5 9v16c0 2.2-1.8 4-4 4H27c-2.2 0-4-1.8-4-4V30c0-4 2-6.5 5.5-9z" fill="#FFC929"/>
-          <path d="M23 36q4.5-4 9 0t9 0" fill="none" stroke="#065f2c" stroke-width="2.6" stroke-linecap="round"/>
-          <path d="M23 42q4.5-4 9 0t9 0" fill="none" stroke="#065f2c" stroke-width="2.6" stroke-linecap="round"/>
-        </svg>
+        <svg class="brand__icon" viewBox="0 0 100 100" aria-hidden="true"><use href="#albimar-icon"/></svg>
         <span class="brand__text">Albi<span>mar</span></span>
       </a>
 
@@ -60,19 +87,16 @@
             A <strong>Albimar</strong> abastece seu bar, restaurante, mercado ou festa com as melhores marcas, preço justo e entrega sem enrolação.
           </p>
           <div class="hero__cta reveal" style="--d:.3s">
-            <a href="#contato" class="btn">Fazer pedido</a>
-            <a href="#produtos" class="btn btn--ghost">Ver produtos</a>
+            <a href="#produtos" class="btn">Veja nossos produtos</a>
+            <a href="#contato" class="btn btn--ghost">Fazer pedido</a>
           </div>
         </div>
 
         <div class="hero__art reveal" style="--d:.2s" aria-hidden="true">
-          <div class="hero__circle"></div>
-          <svg class="hero__bottle hero__bottle--main" viewBox="0 0 64 64">
-            <rect x="28" y="8" width="8" height="4" rx="1.5" fill="#fff"/>
-            <path d="M28.5 12h7v9c3.5 2.5 5.5 5 5.5 9v16c0 2.2-1.8 4-4 4H27c-2.2 0-4-1.8-4-4V30c0-4 2-6.5 5.5-9z" fill="#FFC929"/>
-            <path d="M23 36q4.5-4 9 0t9 0" fill="none" stroke="#065f2c" stroke-width="2.6" stroke-linecap="round"/>
-            <path d="M23 42q4.5-4 9 0t9 0" fill="none" stroke="#065f2c" stroke-width="2.6" stroke-linecap="round"/>
-          </svg>
+          <div class="hero__glow"></div>
+          <div class="hero__ring hero__ring--1"></div>
+          <div class="hero__ring hero__ring--2"></div>
+          <svg class="hero__emblem" viewBox="0 0 100 100"><use href="#albimar-icon"/></svg>
           <span class="float float--1">🍺</span>
           <span class="float float--2">🥤</span>
           <span class="float float--3">💧</span>
@@ -108,47 +132,43 @@
       </div>
     </section>
 
+    <!-- FAIXA DE MARCAS -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track" id="marqueeTrack"></div>
+    </div>
+
     <!-- PRODUTOS -->
-    <section class="section" id="produtos">
+    <section class="section products" id="produtos">
       <div class="container">
         <div class="section__head reveal">
           <span class="tag">Nosso catálogo</span>
           <h2>Tudo que você precisa, <em>num só lugar</em></h2>
-          <p>Das marcas mais pedidas às novidades do mercado.</p>
+          <p>Escolha uma categoria e veja as marcas que trabalhamos.</p>
         </div>
 
-        <div class="cards">
-          <article class="card reveal">
-            <div class="card__icon">🍺</div>
-            <h3>Cervejas</h3>
-            <p>Lata, long neck e barril das marcas que o público pede.</p>
-          </article>
-          <article class="card reveal" style="--d:.08s">
-            <div class="card__icon">🥤</div>
-            <h3>Refrigerantes</h3>
-            <p>Versões tradicionais, zero e linha retornável.</p>
-          </article>
-          <article class="card reveal" style="--d:.16s">
-            <div class="card__icon">💧</div>
-            <h3>Águas</h3>
-            <p>Com e sem gás, em garrafas e galões.</p>
-          </article>
-          <article class="card reveal" style="--d:.24s">
-            <div class="card__icon">🍊</div>
-            <h3>Sucos e Chás</h3>
-            <p>Naturais, néctares e chás gelados para todos os gostos.</p>
-          </article>
-          <article class="card reveal" style="--d:.32s">
-            <div class="card__icon">⚡</div>
-            <h3>Energéticos</h3>
-            <p>Energia na medida para o seu balcão.</p>
-          </article>
-          <article class="card reveal" style="--d:.4s">
-            <div class="card__icon">🥃</div>
-            <h3>Destilados</h3>
-            <p>Vodkas, whiskies, cachaças e muito mais.</p>
-          </article>
+        <div class="cat-tabs reveal" id="catTabs" role="tablist" aria-label="Categorias de bebidas">
+          <button class="cat-tab" role="tab" data-cat="cervejas"><span class="cat-tab__icon">🍺</span><span class="cat-tab__name">Cervejas</span><small></small></button>
+          <button class="cat-tab" role="tab" data-cat="refrigerantes"><span class="cat-tab__icon">🥤</span><span class="cat-tab__name">Refrigerantes</span><small></small></button>
+          <button class="cat-tab" role="tab" data-cat="aguas"><span class="cat-tab__icon">💧</span><span class="cat-tab__name">Águas</span><small></small></button>
+          <button class="cat-tab" role="tab" data-cat="sucos"><span class="cat-tab__icon">🍊</span><span class="cat-tab__name">Sucos e Chás</span><small></small></button>
+          <button class="cat-tab" role="tab" data-cat="energeticos"><span class="cat-tab__icon">⚡</span><span class="cat-tab__name">Energéticos</span><small></small></button>
+          <button class="cat-tab" role="tab" data-cat="destilados"><span class="cat-tab__icon">🥃</span><span class="cat-tab__name">Destilados</span><small></small></button>
         </div>
+
+        <div class="brand-panel reveal" id="brandPanel" role="tabpanel" aria-live="polite">
+          <div class="brand-panel__head">
+            <div class="brand-panel__icon" id="panelIcon">🍺</div>
+            <div class="brand-panel__titles">
+              <h3 id="panelTitle">Cervejas</h3>
+              <p id="panelDesc"></p>
+            </div>
+            <span class="brand-panel__count" id="panelCount"></span>
+          </div>
+          <div class="brand-grid" id="brandGrid"></div>
+          <p class="brand-panel__note" id="panelNote"></p>
+        </div>
+
+        <p class="brands-disclaimer reveal">Marcas citadas pertencem aos seus respectivos proprietários. Consulte disponibilidade e preços pelo WhatsApp.</p>
       </div>
     </section>
 
@@ -156,15 +176,7 @@
     <section class="section section--alt" id="sobre">
       <div class="container about">
         <div class="about__visual reveal" aria-hidden="true">
-          <div class="about__badge">
-            <svg viewBox="0 0 64 64">
-              <circle cx="32" cy="32" r="30" fill="#065f2c" stroke="#FFC929" stroke-width="3"/>
-              <rect x="28" y="8" width="8" height="4" rx="1.5" fill="#fff"/>
-              <path d="M28.5 12h7v9c3.5 2.5 5.5 5 5.5 9v16c0 2.2-1.8 4-4 4H27c-2.2 0-4-1.8-4-4V30c0-4 2-6.5 5.5-9z" fill="#FFC929"/>
-              <path d="M23 36q4.5-4 9 0t9 0" fill="none" stroke="#065f2c" stroke-width="2.6" stroke-linecap="round"/>
-              <path d="M23 42q4.5-4 9 0t9 0" fill="none" stroke="#065f2c" stroke-width="2.6" stroke-linecap="round"/>
-            </svg>
-          </div>
+          <svg class="about__badge" viewBox="0 0 100 100"><use href="#albimar-icon"/></svg>
           <div class="about__ring about__ring--1"></div>
           <div class="about__ring about__ring--2"></div>
         </div>
@@ -231,7 +243,7 @@
             referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class="map__cta reveal">
-          <a class="btn" target="_blank" rel="noopener"
+          <a class="btn btn--green" target="_blank" rel="noopener"
              href="https://www.google.com/maps/search/?api=1&query=Rua+Ana+do+Sacramento+Andrade,+315,+Furnas,+S%C3%A3o+Paulo">
             Abrir no Google Maps
           </a>
@@ -285,6 +297,7 @@
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
+        <svg class="footer__icon" viewBox="0 0 100 100" aria-hidden="true"><use href="#albimar-icon"/></svg>
         <span class="brand__text">Albi<span>mar</span></span>
         <small>Distribuidora de Bebidas</small>
       </div>
