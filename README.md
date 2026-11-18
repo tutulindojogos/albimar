@@ -1,22 +1,22 @@
-# Albimar - Distribuidora de Bebidas
+# Albmar - Distribuidora de Bebidas
 
 Site estático (HTML, CSS e JS puros), pronto para o GitHub Pages.
 
 ## Como publicar no GitHub Pages
 
-1. Crie um repositório no GitHub (ex.: `albimar`).
+1. Crie um repositório no GitHub (ex.: `albmar`).
 2. Envie **todos** os arquivos desta pasta para a raiz do repositório:
    `index.html`, `style.css`, `script.js`, `logo.svg`, `favicon.svg`.
 3. No repositório, vá em **Settings → Pages**.
 4. Em **Source**, escolha **Deploy from a branch**, branch **main** e pasta **/(root)**. Salve.
-5. Em 1 ou 2 minutos o site fica em `https://SEU-USUARIO.github.io/albimar/`.
+5. Em 1 ou 2 minutos o site fica em `https://SEU-USUARIO.github.io/albmar/`.
 
 ## Trocar os contatos (quando quiser)
 
 No `index.html`, procure por:
 
 - `5511999999999` → número do WhatsApp com DDI + DDD (aparece em 2 lugares, mais o texto `(11) 99999-9999`)
-- `albimar.bebidas` → usuário do Instagram (link e texto)
+- `albmar.bebidas` → usuário do Instagram (link e texto)
 
 ## Mapa
 

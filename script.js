@@ -49,6 +49,31 @@
     }
   };
 
+  /* cores das marcas: [fundo, letra] */
+  var BC = {
+    'Heineken':['#1b7a3e','#fff'],'Skol':['#FFC800','#c8102e'],'Brahma':['#E30613','#fff'],'Antarctica':['#0057A8','#fff'],
+    'Budweiser':['#C8102E','#fff'],'Stella Artois':['#1d1d1b','#d4af37'],'Itaipava':['#E2001A','#FFD200'],'Amstel':['#D01F2D','#fff'],
+    'Eisenbahn':['#1f3b2d','#e8c15a'],'Original':['#111','#e2b13c'],'Corona':['#F5C400','#1a3d7c'],'Bohemia':['#7a1f1f','#f2d27a'],
+    'Coca-Cola':['#E41E2B','#fff'],'Pepsi':['#0B3D91','#fff'],'Guaraná Antarctica':['#0a7a3d','#FFD200'],'Fanta':['#FF8200','#fff'],
+    'Sprite':['#00A94F','#fff'],'Tubaína':['#8B1E3F','#fff'],'Dolly':['#D6194A','#fff'],'Kuat':['#2E9B3C','#fff'],
+    'Schweppes':['#FFD400','#111'],'Sukita':['#FF7A00','#fff'],
+    'Crystal':['#00A3E0','#fff'],'Bonafont':['#1B75BC','#fff'],'Minalba':['#0070B8','#fff'],'Indaiá':['#00A0DF','#fff'],
+    'Prata':['#1E73BE','#fff'],'Lindoya':['#0A9AD6','#fff'],'São Lourenço':['#1B4F9C','#fff'],
+    'Del Valle':['#F37021','#fff'],'Maguary':['#E31E24','#fff'],'Ades':['#F7A600','#222'],'Do Bem':['#2BB673','#fff'],
+    'Fuze Tea':['#E2231A','#fff'],'Matte Leão':['#0d6b3a','#fff'],'Natural One':['#7ab800','#fff'],'Tial':['#E85D04','#fff'],
+    'Red Bull':['#1E2A5E','#FFC72C'],'Monster':['#111','#7ED321'],'Fusion':['#E30613','#fff'],'TNT Energy':['#FFD500','#111'],
+    'Baly':['#E4002B','#fff'],'Burn':['#c8102e','#fff'],'Flash Power':['#00A0E3','#fff'],'Nos':['#0033A0','#FFD100'],
+    'Smirnoff':['#C8102E','#fff'],'Absolut':['#1B3A8C','#fff'],'Johnnie Walker':['#1a1a1a','#d4a437'],"Jack Daniel's":['#111','#fff'],
+    'Jim Beam':['#111','#C8A25D'],'Ypióca':['#1d1d1b','#f5b800'],'51':['#FFD100','#0a8a3a'],'Velho Barreiro':['#7a1d1d','#f5d27a'],
+    'Tanqueray':['#0b6b3a','#fff'],"Gordon's":['#006A4E','#fff'],'Campari':['#D6001C','#fff'],'Jägermeister':['#2c5f2d','#f5a623']
+  };
+  function slug(n) { return n.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
+  function abbr(n) {
+    var w = n.replace(/'s$/, '').split(/[\s-]+/);
+    if (w.length > 1) return (w[0].charAt(0) + w[1].charAt(0)).toUpperCase();
+    return n.length > 2 && isNaN(n) ? n.charAt(0).toUpperCase() + n.charAt(1).toLowerCase() : n;
+  }
+
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- Header / progresso / menu ---------- */
@@ -146,7 +171,8 @@
 
     grid.innerHTML = c.brands.map(function (name, idx) {
       return '<div class="brand-item" style="--i:' + idx + '">' +
-        '<span class="brand-item__dot">' + esc(name.charAt(0)) + '</span>' +
+        '<span class="brand-item__dot" style="--bg:' + (BC[name] || ['#16a34a','#fff'])[0] + ';--fg:' + (BC[name] || ['#16a34a','#fff'])[1] + '">' + esc(abbr(name)) +
+        '<img src="img/marcas/' + slug(name) + '.svg" alt="" loading="lazy" onload="this.parentNode.classList.add(\'has-logo\')" onerror="this.remove()"></span>' +
         '<span class="brand-item__name">' + esc(name) + '</span></div>';
     }).join('');
 
