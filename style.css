@@ -372,3 +372,27 @@ a.contact__card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
   .marquee__track span{font-size:1rem}
 }
 
+
+/* ===== Acabamento profissional ===== */
+body{font-family:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3,.brand__text,.step__num{font-family:'Bricolage Grotesque','Manrope',system-ui,sans-serif}
+.hero h1{font-weight:800;line-height:1.03;letter-spacing:-.035em}
+.section__head h2,.about__text h2{font-weight:700;letter-spacing:-.03em;line-height:1.1}
+.section__head p,.about__text p{line-height:1.65}
+.brand__text{font-weight:800;letter-spacing:-.03em}
+.btn{border-radius:12px;font-weight:700;letter-spacing:0}
+.chip{font-weight:600;letter-spacing:0}
+.tag{border-radius:8px;text-transform:none;letter-spacing:.01em;font-weight:700}
+.cat-tab{border-radius:16px;box-shadow:0 1px 2px rgba(6,40,20,.07)}
+.cat-tab__icon,.brand-panel__icon{color:var(--green-800)}
+.cat-tab__icon{border-radius:12px}
+.cat-tab.active .cat-tab__icon,.brand-panel__icon{color:var(--green-950)}
+.cat-tab__icon svg,.brand-panel__icon svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.brand-panel{border-radius:20px;box-shadow:0 24px 50px -24px rgba(4,61,28,.35)}
+.brand-panel__icon{border-radius:14px}
+.step,.contact__card{border-radius:16px}
+.contact__card{box-shadow:0 1px 2px rgba(6,40,20,.06),0 14px 30px -18px rgba(6,40,20,.3)}
+.step__num{border-radius:12px}
+.map{border-radius:20px;overflow:hidden}
+.footer__warn{font-weight:600}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:6px}

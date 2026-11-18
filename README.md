@@ -15,8 +15,8 @@ Site estático (HTML, CSS e JS puros), pronto para o GitHub Pages.
 
 No `index.html`, procure por:
 
-- `5511999999999` → número do WhatsApp com DDI + DDD (aparece em 2 lugares, mais o texto `(11) 99999-9999`)
-- `albmar.bebidas` → usuário do Instagram (link e texto)
+- `5511999999999` → número do WhatsApp com DDI + DDD (aparece em 2 lugares)
+- `albmar.bebidas` → usuário do Instagram (link do perfil)
 
 ## Mapa
 

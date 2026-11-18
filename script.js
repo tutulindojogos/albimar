@@ -6,7 +6,6 @@
      ===================================================== */
   var CATEGORIES = {
     cervejas: {
-      icon: '🍺',
       title: 'Cervejas',
       desc: 'Lata, long neck, garrafa e barril das marcas que o público pede.',
       adult: true,
@@ -14,33 +13,28 @@
                'Itaipava', 'Amstel', 'Eisenbahn', 'Original', 'Corona', 'Bohemia']
     },
     refrigerantes: {
-      icon: '🥤',
       title: 'Refrigerantes',
       desc: 'Versões tradicionais, zero e linha retornável.',
       brands: ['Coca-Cola', 'Pepsi', 'Guaraná Antarctica', 'Fanta', 'Sprite', 'Tubaína',
                'Dolly', 'Kuat', 'Schweppes', 'Sukita']
     },
     aguas: {
-      icon: '💧',
       title: 'Águas',
       desc: 'Com e sem gás, em garrafas, galões e fardos.',
       brands: ['Crystal', 'Bonafont', 'Minalba', 'Indaiá', 'Prata', 'Lindoya', 'São Lourenço']
     },
     sucos: {
-      icon: '🍊',
       title: 'Sucos e Chás',
       desc: 'Néctares, sucos prontos e chás gelados para todos os gostos.',
       brands: ['Del Valle', 'Maguary', 'Ades', 'Do Bem', 'Fuze Tea', 'Matte Leão',
                'Natural One', 'Tial']
     },
     energeticos: {
-      icon: '⚡',
       title: 'Energéticos',
       desc: 'Energia na medida para o seu balcão.',
       brands: ['Red Bull', 'Monster', 'Fusion', 'TNT Energy', 'Baly', 'Burn', 'Flash Power', 'Nos']
     },
     destilados: {
-      icon: '🥃',
       title: 'Destilados',
       desc: 'Vodkas, whiskies, cachaças, gins e licores.',
       adult: true,
@@ -48,6 +42,16 @@
                '51', 'Velho Barreiro', 'Tanqueray', 'Gordon\'s', 'Campari', 'Jägermeister']
     }
   };
+
+  var ICONS = {
+    cervejas:'<path d="M5 9h10v10a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><path d="M15 11h2.5a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5H15"/><path d="M5 9c0-2.2 1.4-3.5 3-3.5.8 0 1.4.3 2 .7.6-.4 1.2-.7 2-.7 1.6 0 3 1.3 3 3.5"/>',
+    refrigerantes:'<path d="M6 8h12l-1.5 12h-9z"/><path d="M5 8h14"/><path d="M12 8V3.5l3.5-1"/>',
+    aguas:'<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/>',
+    sucos:'<circle cx="12" cy="12" r="8"/><path d="M12 4v16M4 12h16M6.3 6.3l11.4 11.4M17.7 6.3L6.3 17.7"/>',
+    energeticos:'<path d="M13 2.5L5 14h6l-1 7.5L18 10h-6z"/>',
+    destilados:'<path d="M6 4h12l-1.5 14a2 2 0 0 1-2 1.8h-5a2 2 0 0 1-2-1.8z"/><path d="M7 10h10"/>'
+  };
+  function icon(k) { return '<svg viewBox="0 0 24 24" aria-hidden="true">' + ICONS[k] + '</svg>'; }
 
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -124,6 +128,7 @@
   // quantidade de marcas em cada aba
   tabs.forEach(function (t) {
     var c = CATEGORIES[t.dataset.cat];
+    t.querySelector('.cat-tab__icon').innerHTML = icon(t.dataset.cat);
     t.querySelector('small').textContent = c.brands.length + ' marcas';
   });
 
@@ -137,11 +142,11 @@
       t.setAttribute('aria-selected', String(on));
     });
 
-    panelIcon.textContent = c.icon;
+    panelIcon.innerHTML = icon(key);
     panelTitle.textContent = c.title;
     panelDesc.textContent = c.desc;
     panelCount.textContent = c.brands.length + ' marcas';
-    panelNote.textContent = c.adult ? '🔞 Venda permitida somente para maiores de 18 anos. Beba com moderação.' : '';
+    panelNote.textContent = c.adult ? '+18 · Venda permitida somente para maiores de 18 anos. Beba com moderação.' : '';
     panelNote.style.display = c.adult ? 'block' : 'none';
 
     grid.innerHTML = c.brands.map(function (name, idx) {
