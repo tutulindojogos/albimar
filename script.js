@@ -196,7 +196,7 @@
         if (!DOM[name]) return;
         var im = new Image();
         im.onload = function () {
-          if (im.naturalWidth < 32 || dot.querySelector('img')) return;
+          if (im.naturalWidth < 16 || dot.querySelector('img')) return;
           im.alt = '';
           dot.classList.add('has-logo');
           dot.appendChild(im);

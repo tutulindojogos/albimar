@@ -379,3 +379,5 @@ a.contact__card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
   .brand-panel__note{padding:0 18px 18px}
   .marquee__track span{font-size:1rem}
 }
+
+.brand-item__dot.has-logo img{padding:10px;image-rendering:auto}
